@@ -7,7 +7,7 @@ Created on 2016/11/21
 import pymysql
 import time
 
-conn = pymysql.connect(host="rdsea8n4lglktg5e69p1o.mysql.rds.aliyuncs.com", user="yanshan", passwd="pwd_yanshan2016",
+conn = pymysql.connect(host="rdsea8n4lglktg5e69p.mysql.rds.aliyuncs.com", user="yanshan", passwd="pwd_yanshan2016",
                        db="yanshan_db", port=3306, charset='utf8')  # 链接数据库
 cur = conn.cursor()  # 获取游标
 
