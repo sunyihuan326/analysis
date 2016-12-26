@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D3 hello</title>
+</head>
+<body>
+<p class="first">Hello world!</p>
+<p class="first">Hello world!3</p>
+<p id="first">nishuo !</p>
+<script src="../D3/d3/d3.min.js">
+</script>
+<script>
+    var p=d3.select('body').selectAll('p').text("WO shi huanhuan!");     //selec  选择集
+    p.style("color","red")
+    p.style("font-size","50px")
+
+    var dataset=["i love u","ni shuo u","hao ya"];                    //绑定数据
+    p.data(dataset);
+    p.text(function (d,i) {
+        return d;
+    });
+
+    var p0=d3.select('body').select("#first").text("WO shi huanhuan!");
+    var p1=d3.select('body');
+    p1.insert("p",".first").text("99999");
+
+</script>
+
+</body>
+</html>

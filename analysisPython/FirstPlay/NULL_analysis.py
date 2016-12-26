@@ -15,9 +15,8 @@ cur = conn.cursor()  # 获取游标
 
 sql3 = "select * from ys_order WHERE status=1 LIMIT 100"
 
-
 cur.execute(sql3)
-data=cur.fetchall()
+data = cur.fetchall()
 for d in data:
-    t=time.strptime('',d[-2])
+    t = time.strptime('', d[-2])
     print d[-2]
