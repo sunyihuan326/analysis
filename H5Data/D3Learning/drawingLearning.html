@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning drawing!</title>
+</head>
+<body>
+<script src="d3/d3.min.js"></script>
+
+<!--<svg>-->
+    <!--<g>-->
+    <!--<rect></rect>-->
+    <!--<rect></rect>-->
+    <!--</g>-->
+<!--</svg>-->
+<style>
+.axis path,
+.axis line{
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-family: sans-serif;
+	font-size: 9px;
+}
+</style>
+
+<script>
+    var width=200;
+    var height=200;
+    var svg=d3.select('body').append("svg").attr("width",width).attr("height",height);
+    var dataset=[250,210,170,130,90];
+    var rectHeight=25;
+
+    var min=d3.min(dataset);
+    var max=d3.max(dataset);
+
+    var linear=d3.scale.linear()    //定义比例尺
+            .domain([min,max])      //定义域
+            .range([0,300]);        //值域
+
+    var axis=d3.svg.axis()
+            .scale(linear)
+            .orient("bottom")
+            .ticks(7);
+
+    svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x",20)
+            .attr("y",function (d,i) {
+                return i * rectHeight;
+            })
+            .attr("width",function (d) {
+                return linear(d);                     //应用比例
+            })
+            .attr("height",rectHeight-2)
+            .attr("fill","steelblue");
+
+    svg.append("g")
+			.attr("class","axis")
+			.attr("transform","translate(20,130)")
+			.call(axis);
+
+</script>
+
+</body>
+</html>
