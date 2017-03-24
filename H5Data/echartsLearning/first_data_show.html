@@ -15,17 +15,19 @@
             text:'first data show'
         },
         tooltip:{},
-        legend:{
-            data:['访问量']
-        },
-        xAxis:{
-            data:["2016-10-03","2016-10-03","2016-10-03","2016-10-03"]
-        },
-        yAxis:{},
+//        legend:{
+//            data:['访客比']
+//        },
+//        xAxis:{
+//            data:["老访客","新访客"]
+//        },
+//        yAxis:{},
         series:[{
             name:"访问量",
-            type:"line",
-            data:[100,329,463,780]
+            type:"pie",
+            radius:"55%",
+            center:["50%","50%"],
+            data:[{value:100,name:"老访客"},{value:255,name:"新访客"}]
         }]
     };
     mychart.setOption(option);
