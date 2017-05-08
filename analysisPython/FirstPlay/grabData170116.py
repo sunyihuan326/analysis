@@ -13,7 +13,7 @@ sys.setdefaultencoding('utf8')
 
 
 urls = []
-for i in list(range(1, 10)):
+for i in list(range(1, 30)):
     urls.append(
         'https://rate.tmall.com/list_detail_rate.htm?itemId=521136254098&spuId=345965243&sellerId=2106525799&order=1&currentPage=%s' % i)
 
@@ -33,10 +33,10 @@ for url in urls:
     ratedate.extend(re.findall(re.compile('"rateDate":"(.*?)","reply"'), content))
     # print nickname
 
-print len(nickname)
+# print len(nickname)
 file = open('nanjiren.csv', 'w')
 for i in range(len(nickname)):
-    print nickname[i]
+    # print nickname[i]
     # print i
     # file.write(str(1))
     file.write(','.join((unicode(nickname[i]))) + '\n')
