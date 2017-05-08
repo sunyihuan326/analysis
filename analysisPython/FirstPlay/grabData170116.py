@@ -6,6 +6,11 @@ Created on 2017/1/16
 '''
 import requests
 import re
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 
 urls = []
 for i in list(range(1, 10)):
@@ -30,7 +35,7 @@ for url in urls:
 
 print len(nickname)
 file = open('nanjiren.csv', 'w')
-for i in range(3):
+for i in range(len(nickname)):
     print nickname[i]
     # print i
     # file.write(str(1))
