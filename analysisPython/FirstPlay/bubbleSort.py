@@ -19,5 +19,5 @@ def bubble(bubbleList):
 
 
 if __name__ == '__main__':
-    bubbleList = [9, 8, 0, 10, 67, 3, 1]
+    bubbleList = [9, 8, 0, 10, 67, 3, 1,674]
     bubble(bubbleList)
