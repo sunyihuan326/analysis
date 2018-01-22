@@ -8,8 +8,8 @@ import requests
 import re
 import sys
 
-reload(sys)
-sys.setdefaultencoding('utf8')
+# reload(sys)
+# sys.setdefaultencoding('utf8')
 
 
 urls = []
@@ -39,5 +39,5 @@ for i in range(len(nickname)):
     # print nickname[i]
     # print i
     # file.write(str(1))
-    file.write(','.join((unicode(nickname[i]))) + '\n')
+    file.write(','.join((str(nickname[i]))) + '\n')
 file.close()

@@ -5,7 +5,7 @@ Created on 2017/5/24
 @author: sunyihuan
 '''
 
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import datasets, linear_model, cross_validation, svm
 # import pandas as pd
@@ -27,15 +27,18 @@ def test_SVC_linear(*data):
     Y_tt = min_max_scaler.fit_transform(X_tt)
     clf = svm.SVC(kernel='linear')
     clf.fit(X_train, Y_train)
-    print 'Coefficients:%s, intercept %s' % (clf.coef_, clf.intercept_)
-    print 'Score:%.2f' % clf.score(X_tt, Y_tt)
+    print('Coefficients:%s, intercept %s' % (clf.coef_, clf.intercept_))
     test_predict = clf.predict(X_tt)
     laber_list = list(test_predict)
-    print laber_list
-    clf.score(X_tt, Y_tt)
-    print np.mean(test_predict == Y_tt)
-    print Y_tt
-    print test_predict
+    print(laber_list)
+    # clf.score(X_tt, Y_tt)
+    print(np.mean(test_predict == Y_tt))
+    print(Y_tt)
+    print(test_predict)
+    plt.plot(X_tt, Y_tt)
+
+    plt.plot(X_tt, test_predict)
+    plt.show()
     # iris_test = pd.read_csv('E:/iris_test.csv')
     # X = iris_test[['aa', 'bb', 'cc', 'dd']]
     # Y = DataFrame(clf.predict(X), columns=['class'])

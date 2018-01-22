@@ -14,21 +14,21 @@ class SelectBall(object):
 
     def run(self):
         while True:
-            numStr = raw_input('请输入测试数据：')
+            numStr = input('请输入测试数据：')
             try:
                 num = int(numStr)
 
             except ValueError:
-                print u'要求输入一个整数'
+                print(u'要求输入一个整数')
                 continue
             else:
                 break
         ball = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        for i in xrange(num):
+        for i in range(num):
             n = random.randint(1, 10)
             ball[n - 1] += 1
-        for i in xrange(1, 11):
-            print u'获取第%d号球的概率为%f' % (i, ball[i - 1] * 1.0 / num)
+        for i in range(1, 11):
+            print(u'获取第%d号球的概率为%f' % (i, ball[i - 1] * 1.0 / num))
 
 
 if __name__ == '__main__':

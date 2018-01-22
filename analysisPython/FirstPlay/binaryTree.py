@@ -15,4 +15,4 @@ class Node:
     def preTraverse(root):
         if root == None:
             return
-        print root.value
+        print(root.value)

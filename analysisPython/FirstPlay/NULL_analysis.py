@@ -19,4 +19,4 @@ cur.execute(sql3)
 data = cur.fetchall()
 for d in data:
     t = time.strptime('', d[-2])
-    print d[-2]
+    print(d[-2])

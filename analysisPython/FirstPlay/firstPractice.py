@@ -11,19 +11,19 @@ k = 0
 while k < 101:
     k = k + 1
     s = s + k
-print s
+print(s)
 
 # lamnbda定义函数
 f = lambda x, y: x + y
-print f(2, 6)
+print (f(2, 6))
 
 # 列表
 c = [1, 'abc', [1, 2]]
-print c[1], c[2][1]
+print( c[1], c[2][1])
 
 # 字典
 d = {'today': 20, 'tomorrow': 30}
-print d['today']
+print(d['today'])
 
 from scipy.optimize import fsolve
 
@@ -36,7 +36,7 @@ def f(x):
 
 
 result = fsolve(f, [1, 1])
-print result
+print(result)
 
 # 积分
 from scipy import integrate
@@ -47,7 +47,7 @@ def g(x):
 
 
 pi_2, err = integrate.quad(g, 0, 1)
-print pi_2
+print(pi_2)
 
 import pandas as pd
 
@@ -55,4 +55,4 @@ s = pd.Series([1, 2, 3], index=["a", "b", "c"])
 d = pd.DataFrame([[1, 2, 3], [4, 5, 6]], columns=["a", "b", "c"])
 d2 = pd.DataFrame(s)
 d.head()
-d.describe()
+print(d.describe())
