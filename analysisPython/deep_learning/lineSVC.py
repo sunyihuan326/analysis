@@ -7,9 +7,10 @@ Created on 2017/5/24
 
 import matplotlib.pyplot as plt
 import numpy as np
-from sklearn import datasets, linear_model, cross_validation, svm
+from sklearn import datasets, linear_model, svm
 # import pandas as pd
 # from pandas import DataFrame
+from sklearn import model_selection
 from sklearn.preprocessing import MinMaxScaler
 
 
@@ -17,7 +18,7 @@ def load_data_classfication():
     iris = datasets.load_iris()
     X_train = iris.data
     Y_train = iris.target
-    return cross_validation.train_test_split(X_train, Y_train, test_size=0.25, random_state=0, stratify=Y_train)
+    return model_selection.train_test_split(X_train, Y_train, test_size=0.25, random_state=0, stratify=Y_train)
 
 
 def test_SVC_linear(*data):
@@ -33,12 +34,12 @@ def test_SVC_linear(*data):
     print(laber_list)
     # clf.score(X_tt, Y_tt)
     print(np.mean(test_predict == Y_tt))
-    print(Y_tt)
-    print(test_predict)
-    plt.plot(X_tt, Y_tt)
-
-    plt.plot(X_tt, test_predict)
-    plt.show()
+    # print(Y_tt)
+    # print(test_predict)
+    # plt.plot(X_tt, Y_tt)
+    #
+    # plt.plot(X_tt, test_predict)
+    # plt.show()
     # iris_test = pd.read_csv('E:/iris_test.csv')
     # X = iris_test[['aa', 'bb', 'cc', 'dd']]
     # Y = DataFrame(clf.predict(X), columns=['class'])
