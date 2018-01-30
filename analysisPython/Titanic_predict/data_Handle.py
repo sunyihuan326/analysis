@@ -7,29 +7,43 @@ created on 2018/1/25
 import pandas as pd
 from fancyimpute import KNN
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 
 def handle_data(file_train, file_test):
+    # pandas加载csv数据
     train = pd.read_csv(file_train)
     test = pd.read_csv(file_test)
 
+    # 设置PassengerId为索引，inplace=True索引为列
     train.set_index("PassengerId", inplace=True)
     test.set_index("PassengerId", inplace=True)
 
-
+    # 将Embarked中的nan填充为"S"
     train["Embarked"].fillna(value="S", inplace=True)
+
+    # 按列删除Cabin
     train.drop(labels=["Cabin"], axis=1, inplace=True)
     test.drop(labels=['Cabin'], axis=1, inplace=True)
 
+    # 查看表中字段
+    train.keys()
+
+    # 对train中Embarked列进行one-hot编码
     train = pd.get_dummies(train, columns=['Embarked'])
     train = pd.get_dummies(train, columns=['Sex'], drop_first=True)
+
+    # 重新命名Sex_male列为Gender
     train = train.rename(columns={"Sex_male": "Gender"})
 
+    # test-hot编码
     test = pd.get_dummies(test, columns=['Embarked'])
     test = pd.get_dummies(test, columns=['Sex'], drop_first=True)
+
+    # 重新命名Sex_male列为Gender
     test = test.rename(columns={"Sex_male": "Gender"})
 
+    # 删除Name、Ticket两列
     train.drop(['Name', 'Ticket'], axis=1, inplace=True)
     test.drop(['Name', 'Ticket'], axis=1, inplace=True)
 
@@ -68,3 +82,8 @@ def data_normalization(data):
     sc = StandardScaler()
     data = sc.fit_transform(data)
     return data
+
+
+file_train = "/Users/sunyihuan/Desktop/Data/Titanic/train.csv"
+file_test = "/Users/sunyihuan/Desktop/Data/Titanic/test.csv"
+train, test = handle_data(file_train=file_train, file_test=file_test)
