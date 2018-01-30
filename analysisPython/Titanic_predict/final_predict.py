@@ -138,4 +138,4 @@ if __name__ == "__main__":
     alg = model_Logistic(x_train=x_train, y_train=y_train, x_test=x_test, y_test=y_test)
 
     y = alg.predict(test)
-    print(y)
+    # print(y)
