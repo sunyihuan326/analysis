@@ -187,7 +187,6 @@ test['family_member'] = test.SibSp + test.Parch
 train['is_alone'] = [1 if i < 2 else 0 for i in train.family_member]
 test['is_alone'] = [1 if i < 2 else 0 for i in test.family_member]
 
-
 print("train.shape", train.shape)
 
 print(train.head(2))
@@ -289,7 +288,7 @@ print(x_train.shape, y_train.shape)
 print(x_train[1], y_train[1])
 print("______++++++++++++$$$$$$$$$$$")
 
-knn = KNeighborsClassifier(weights="uniform", )
+knn = KNeighborsClassifier(weights="uniform")
 knn.fit(x_train, y_train)
 y_pred = knn.predict(x_test)
 knn_accy = round(accuracy_score(y_test, y_pred), 3)
