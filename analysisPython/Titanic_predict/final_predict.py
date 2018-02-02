@@ -129,7 +129,7 @@ if __name__ == "__main__":
     x_train = data_normalization(x_train)
     x_test = data_normalization(x_test)
 
-    alg = model_all.model_Grid_knn(x_train=x_train, y_train=y_train, x_test=x_test, y_test=y_test)
+    alg = model_all.model_Logistic(x_train=x_train, y_train=y_train, x_test=x_test, y_test=y_test)
 
     y = alg.predict(test)
     # print(y)
