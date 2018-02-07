@@ -96,6 +96,8 @@ plt.subplot(339)  # the first subplot in the first figure
 # 画气泡图，s为气泡的大小
 plt.scatter(x_train['Age'], x_train['Pclass'], s=x_train['family_member'])
 
+plt.savefig("scatter_picture.jpg")
+
 # 创建第2张图
 plt.figure(2)
 
@@ -121,6 +123,7 @@ labels = "apple", "banana", "pear", "yozi"
 plt.pie(x=a, labels=labels)
 # 设置坐标长宽一致
 plt.axis("equal")
+plt.savefig("pie_picture.jpg")
 
 # 显示图像
 plt.show()
