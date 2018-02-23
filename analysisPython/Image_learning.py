@@ -50,6 +50,7 @@ r, g, b = img_pie.split()
 
 # 图像类型转换
 im = img_pie.convert("RGBA")
+
 # im.show()
 
 # 获取某个像素位置的值
@@ -59,3 +60,4 @@ print(a)
 # 给某个像素赋值
 im.putpixel((4, 4), (0, 0, 0, 0))
 im.show()
+
