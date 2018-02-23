@@ -41,14 +41,13 @@ pwd = "pwd_test2016"
 port = 3306
 db = "yanshan_test"
 
+connect_mysql(host=host, user=user, pwd=pwd, port=port, db=db)
 
-# connect_mysql(host=host, user=user, pwd=pwd, port=port, db=db)
 
-
-def connect_mongodb():
+def connect_mongodb(user, pwd):
     # 用户认证名称、密码
-    username = urllib.parse.quote_plus('yanzi')
-    password = urllib.parse.quote_plus('yanzi2016')
+    username = urllib.parse.quote_plus(user)
+    password = urllib.parse.quote_plus(pwd)
 
     # 建立和mongodb数据库系统的连接
     client = pymongo.MongoClient('mongodb://%s:%s@dev.yanzijia.cn' % (username, password))
@@ -65,4 +64,6 @@ def connect_mongodb():
     return True
 
 
-connect_mongodb()
+user = "yanzi"
+pwd = "yanzi2016"
+connect_mongodb(user=user, pwd=pwd)
