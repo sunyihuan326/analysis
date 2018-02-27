@@ -5,18 +5,6 @@ created on 2018/2/27
 @author:sunyihuan
 '''
 
-# POST /face/shape HTTP/1.1
-# Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
-# Host: service.image.myqcloud.com
-# Content-Length: 123
-# Content-Type: application/json
-#
-# {
-#   "appid":"123456",
-#   "mode":1,
-#   "url":"http://test-123456.image.myqcloud.com/test.jpg"
-# }
-
 from qcloud_image import Client
 from qcloud_image import CIUrl, CIFile, CIBuffer, CIUrls, CIFiles, CIBuffers
 import matplotlib.pyplot as plt
