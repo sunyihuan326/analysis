@@ -21,11 +21,11 @@ client.use_http()
 client.set_timeout(30)
 
 # //单个图片file,mode:1为检测最大的人脸 , 0为检测所有人脸
-# print(client.face_shape(CIFile('./test0.jpg'), 1))
+face = client.face_shape(CIFile('./test0.jpg'), 1)
 
 # //单个图片Url,mode:1为检测最大的人脸 , 0为检测所有人脸
-face = client.face_shape(
-    CIUrl('https://xdimg.meiyezhushou.com/xiaomei/material_library/sample_face/2db161612335d559.jpg'), 1)
+# face = client.face_shape(
+#     CIUrl('https://xdimg.meiyezhushou.com/xiaomei/material_library/sample_face/2db161612335d559.jpg'), 1)
 
 # 打印脸部数据
 print(face["data"])
@@ -62,6 +62,5 @@ print("x", x)
 print("y", y)
 img = mpimg.imread("test0.jpg")
 plt.imshow(img)
-plt.scatter(x=x, y=y, s=0.5, marker=".")
+plt.scatter(x=x, y=y, s=0.5, marker=".", c="r")
 plt.show()
-
