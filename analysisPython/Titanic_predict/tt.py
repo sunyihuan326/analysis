@@ -15,6 +15,8 @@ train = pd.read_csv(file_train)
 test = pd.read_csv(file_test)
 
 pca = PCA(n_components='mle')
+
+# 不能带有string
 pca.fit(train)
 
 print(pca.explained_variance_ratio_)
