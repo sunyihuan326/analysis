@@ -116,12 +116,48 @@ def get_total_x(a, b):
                 a_cou += 1
         if a_cou == len(a):
             cc.append(c)
-    print(cc)
     return len(cc)
 
 
-b = [16, 32, 96]
-a = [2, 4]
-print(get_total_x(a, b))
+# b = [16, 32, 96]
+# a = [2, 4]
+# print(get_total_x(a, b))
 
 # print(all_factor(100))
+
+def breakingRecords(scores):
+    s_a = []
+    max_count = 0
+    min_count = 0
+    for i in range(len(scores) - 1):
+        s_a.append(scores[i])
+        max_list = [j for j in s_a if scores[i + 1] > j]
+        min_list = [j for j in s_a if scores[i + 1] < j]
+        if len(max_list) == len(s_a):
+            max_count += 1
+        if len(min_list) == len(s_a):
+            min_count += 1
+    return max_count, min_count
+
+
+#
+# s = [10, 5, 20, 20, 4, 5, 2, 25, 1]
+# print(breakingRecords(s))
+# breakingRecords(s)
+
+def hourglassSum(arr):
+    con_w = [[1, 1, 1], [0, 1, 0], [1, 1, 1]]
+    d_sum = []
+    for i in range(len(arr) - 3 + 1):
+        for j in range(len(arr) - 3 + 1):
+            d = []
+            for k in range(3):
+                for t in range(3):
+                    d_a = arr[i + k][j + t] * con_w[k][t]
+                    d.append(d_a)
+            d_sum.append(sum(d))
+    return max(d_sum)
+
+
+arr = [[1, 1, 1, 0, 0], [0, 1, 0, 0, 0], [1, 1, 1, 0, 0], [0, 0, 2, 4, 4], [0, 0, 0, 2, 0]]
+print(hourglassSum(arr))
