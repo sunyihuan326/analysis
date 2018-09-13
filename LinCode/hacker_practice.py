@@ -159,5 +159,42 @@ def hourglassSum(arr):
     return max(d_sum)
 
 
-arr = [[1, 1, 1, 0, 0], [0, 1, 0, 0, 0], [1, 1, 1, 0, 0], [0, 0, 2, 4, 4], [0, 0, 0, 2, 0]]
-print(hourglassSum(arr))
+# arr = [[1, 1, 1, 0, 0], [0, 1, 0, 0, 0], [1, 1, 1, 0, 0], [0, 0, 2, 4, 4], [0, 0, 0, 2, 0]]
+# print(hourglassSum(arr))
+
+def rotLeft(a, d):
+    a_new = list(a[d:])
+    for i in range(d):
+        a_new.append(a[i])
+    return a_new
+
+
+#
+# a = [1, 2, 3, 4, 4, 5]
+# print(rotLeft(a, 2))
+def minimumBribes(q):
+    count_t = 0
+    for i in range(len(q) - 1):
+        q_i_count = 0
+        if q[i + 1] < q[i]:
+            t = q[i]
+            q[i] = q[i + 1]
+            q[i + 1] = t
+            count_t += 1
+            q_i_count += 1
+            if q_i_count >= 2:
+                continue
+    qq = sorted(q)
+    count_q_len = 0
+    for j in range(len(q)):
+        if q[j] == qq[j]:
+            count_q_len += 1
+    if count_q_len != len(q):
+        res = "Too chaotic"
+        return res
+    else:
+        return count_t
+
+
+q = [1 ,2 ,5 ,3 ,7 ,8 ,6 ,4]
+print(minimumBribes(q))
